@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { useRouter } from 'next/router'; // Import useRouter hook
+import { useRouter } from 'next/router';
 import { auth } from '../components/firebase';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 
 function SignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
-  const router = useRouter(); // Initialize useRouter
+  const router = useRouter();
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -18,8 +18,8 @@ function SignUp() {
       setIsSuccess(true);
       setTimeout(() => {
         setMessage('');
-        router.push('/login'); // Navigate to login page
-      }, 2000); // Display message for 2 seconds before redirecting
+        router.push('/login');
+      }, 2000);
     } catch (error) {
       console.error('Error signing up: ', error);
       setMessage('Failed to sign up. Please try again.');
@@ -35,6 +35,7 @@ function SignUp() {
         </div>
       )}
       <form onSubmit={handleSignup} style={styles.form}>
+        <h2 style={styles.heading}>Create an Account</h2>
         <div style={styles.formGroup}>
           <label style={styles.label}>Email:</label>
           <input
@@ -60,7 +61,6 @@ function SignUp() {
     </div>
   );
 }
-
 const styles = {
   container: {
     display: 'flex',
@@ -115,5 +115,4 @@ const styles = {
     maxWidth: '400px',
   }
 };
-
 export default SignUp;

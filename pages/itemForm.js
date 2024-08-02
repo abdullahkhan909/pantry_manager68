@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { db, storage } from '../components/firebase'; // Ensure correct path to firebase.js
 import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
-import { collection, addDoc, deleteDoc, doc, onSnapshot, updateDoc } from 'firebase/firestore';
+import { collection, addDoc, deleteDoc, doc, onSnapshot, updateDoc, getDoc } from 'firebase/firestore';
+import { useAuth } from '../components/auth'; // Import your authentication context or hook
 
 function ItemForm() {
   const [items, setItems] = useState([]);
@@ -12,22 +13,31 @@ function ItemForm() {
   const [searchQuery, setSearchQuery] = useState('');
   const [editingItem, setEditingItem] = useState(null); // New state to track the item being edited
   const fileInputRef = useRef(null); // Ref for file input field
+  const { user } = useAuth(); // Get the current user
 
   // Fetch items from Firestore
   useEffect(() => {
-    const itemsCollectionRef = collection(db, 'items');
-    const unsubscribe = onSnapshot(itemsCollectionRef, (snapshot) => {
-      const itemsList = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-      setItems(itemsList);
-      setFilteredItems(itemsList);
-    });
+    if (user) {
+      const itemsCollectionRef = collection(db, 'items');
+      const unsubscribe = onSnapshot(itemsCollectionRef, (snapshot) => {
+        const itemsList = snapshot.docs
+          .map(doc => ({ id: doc.id, ...doc.data() }))
+          .filter(item => item.userId === user.uid); // Filter by user ID
+        setItems(itemsList);
+        setFilteredItems(itemsList);
+      });
 
-    return () => unsubscribe();
-  }, []);
+      return () => unsubscribe();
+    }
+  }, [user]);
 
   const handleAddOrUpdate = async (e) => {
     e.preventDefault();
     try {
+      if (!user) {
+        throw new Error('User is not authenticated');
+      }
+
       if (editingItem) {
         // Update the existing item
         const docRef = doc(db, 'items', editingItem.id);
@@ -52,6 +62,7 @@ function ItemForm() {
           name: itemName,
           quantity: quantity,
           imageUrl: '', // Placeholder for the image URL
+          userId: user.uid, // Associate item with user ID
         });
 
         // Upload the image if selected
@@ -173,6 +184,8 @@ function ItemForm() {
   );
 }
 
+// Define your styles here (same as before)
+
 const styles = {
   container: {
     display: 'flex',
@@ -243,20 +256,19 @@ const styles = {
   list: {
     width: '100%',
     maxWidth: '500px',
-    margin: '0 auto',
   },
   item: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     padding: '15px',
-    borderBottom: '1px solid #ddd',
-    borderRadius: '8px',
-    backgroundColor: '#fafafa',
     marginBottom: '10px',
+    borderRadius: '8px',
     boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+    backgroundColor: '#ffffff',
   },
   itemText: {
+    marginBottom: '10px',
     fontSize: '18px',
     color: '#333',
   },
@@ -264,13 +276,12 @@ const styles = {
     width: '100px',
     height: '100px',
     objectFit: 'cover',
+    marginBottom: '10px',
     borderRadius: '8px',
-    marginTop: '10px',
   },
   buttonsContainer: {
     display: 'flex',
-    justifyContent: 'center',
-    marginTop: '10px',
+    gap: '10px',
   },
   editButton: {
     padding: '8px 16px',
@@ -278,10 +289,7 @@ const styles = {
     border: 'none',
     backgroundColor: '#FFC107',
     color: 'white',
-    fontSize: '16px',
     cursor: 'pointer',
-    marginRight: '10px',
-    transition: 'background-color 0.3s ease',
   },
   deleteButton: {
     padding: '8px 16px',
@@ -289,9 +297,7 @@ const styles = {
     border: 'none',
     backgroundColor: '#F44336',
     color: 'white',
-    fontSize: '16px',
     cursor: 'pointer',
-    transition: 'background-color 0.3s ease',
   },
 };
 

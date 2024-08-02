@@ -2,6 +2,8 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { initGA, logPageView } from '../utils/analytics'; // Adjust the path as necessary
+import { AuthProvider } from '../components/auth'; // Adjust the import path as needed
+import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -18,7 +20,11 @@ function MyApp({ Component, pageProps }) {
     };
   }, [router.events]);
 
-  return <Component {...pageProps} />;
+  return (
+    <AuthProvider>
+      <Component {...pageProps} />
+    </AuthProvider>
+  );
 }
 
 export default MyApp;

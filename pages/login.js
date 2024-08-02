@@ -73,6 +73,11 @@ function Login() {
   );
 }
 
+// Define your styles here (same as before)
+
+
+
+
 const styles = {
   container: {
     display: 'flex',
