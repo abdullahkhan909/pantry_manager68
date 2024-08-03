@@ -25,6 +25,7 @@ function Login() {
       if (error.code === 'auth/user-not-found') {
         setMessage('Email not registered');
         setIsSuccess(false);
+<<<<<<< HEAD
       } else {
         setMessage('Login failed. Please try again.');
         setIsSuccess(false);
@@ -32,6 +33,18 @@ function Login() {
       setTimeout(() => {
         setMessage('');
       }, 2000); // Display message for 2 seconds
+=======
+        setTimeout(() => {
+          setMessage('');
+        }, 2000); // Display message for 2 seconds
+      } else {
+        setMessage('Login failed. Please try again.');
+        setIsSuccess(false);
+        setTimeout(() => {
+          setMessage('');
+        }, 2000); // Display message for 2 seconds
+      }
+>>>>>>> 03a5e2a0ac3e3b7d4f58eac2e3145fb438dcd4a4
     }
   };
 
@@ -70,6 +83,14 @@ function Login() {
   );
 }
 
+<<<<<<< HEAD
+=======
+// Define your styles here (same as before)
+
+
+
+
+>>>>>>> 03a5e2a0ac3e3b7d4f58eac2e3145fb438dcd4a4
 const styles = {
   container: {
     display: 'flex',
@@ -88,8 +109,12 @@ const styles = {
     border: '1px solid #ccc',
     borderRadius: '8px',
     maxWidth: '400px',
+<<<<<<< HEAD
     backgroundColor: '#fff',
     width: '100%' // Ensuring the form takes full width on mobile
+=======
+    backgroundColor: '#fff'
+>>>>>>> 03a5e2a0ac3e3b7d4f58eac2e3145fb438dcd4a4
   },
   title: {
     marginBottom: '15px',
@@ -119,8 +144,12 @@ const styles = {
     backgroundColor: '#4CAF50',
     color: 'white',
     fontSize: '16px',
+<<<<<<< HEAD
     cursor: 'pointer',
     width: '100%' // Ensuring the button takes full width on mobile
+=======
+    cursor: 'pointer'
+>>>>>>> 03a5e2a0ac3e3b7d4f58eac2e3145fb438dcd4a4
   },
   message: {
     marginBottom: '15px',
@@ -133,6 +162,7 @@ const styles = {
   }
 };
 
+<<<<<<< HEAD
 // Adding media queries for better mobile responsiveness
 const mobileStyles = `
   @media (max-width: 600px) {
@@ -166,4 +196,6 @@ if (typeof window !== 'undefined') {
   document.head.appendChild(styleSheet);
 }
 
+=======
+>>>>>>> 03a5e2a0ac3e3b7d4f58eac2e3145fb438dcd4a4
 export default Login;

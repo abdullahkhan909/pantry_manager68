@@ -1,7 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { db, storage } from '../components/firebase'; // Ensure correct path to firebase.js
 import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
+<<<<<<< HEAD
 import { collection, addDoc, deleteDoc, doc, onSnapshot, updateDoc } from 'firebase/firestore';
+=======
+import { collection, addDoc, deleteDoc, doc, onSnapshot, updateDoc, getDoc } from 'firebase/firestore';
+>>>>>>> 03a5e2a0ac3e3b7d4f58eac2e3145fb438dcd4a4
 import { useAuth } from '../components/auth'; // Import your authentication context or hook
 
 function ItemForm() {
@@ -184,7 +188,11 @@ function ItemForm() {
   );
 }
 
+<<<<<<< HEAD
 // Define your styles here
+=======
+// Define your styles here (same as before)
+>>>>>>> 03a5e2a0ac3e3b7d4f58eac2e3145fb438dcd4a4
 
 const styles = {
   container: {
@@ -265,12 +273,17 @@ const styles = {
     marginBottom: '10px',
     borderRadius: '8px',
     boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+<<<<<<< HEAD
     backgroundColor: '#fff',
     transition: 'transform 0.2s ease',
+=======
+    backgroundColor: '#ffffff',
+>>>>>>> 03a5e2a0ac3e3b7d4f58eac2e3145fb438dcd4a4
   },
   itemText: {
     marginBottom: '10px',
     fontSize: '18px',
+<<<<<<< HEAD
     fontWeight: '500',
     textAlign: 'center',
   },
@@ -280,6 +293,16 @@ const styles = {
     objectFit: 'cover',
     borderRadius: '8px',
     marginBottom: '10px',
+=======
+    color: '#333',
+  },
+  image: {
+    width: '100px',
+    height: '100px',
+    objectFit: 'cover',
+    marginBottom: '10px',
+    borderRadius: '8px',
+>>>>>>> 03a5e2a0ac3e3b7d4f58eac2e3145fb438dcd4a4
   },
   buttonsContainer: {
     display: 'flex',
@@ -289,16 +312,23 @@ const styles = {
     padding: '8px 16px',
     borderRadius: '8px',
     border: 'none',
+<<<<<<< HEAD
     backgroundColor: '#f39c12',
     color: 'white',
     fontSize: '14px',
     cursor: 'pointer',
     transition: 'background-color 0.3s ease',
+=======
+    backgroundColor: '#FFC107',
+    color: 'white',
+    cursor: 'pointer',
+>>>>>>> 03a5e2a0ac3e3b7d4f58eac2e3145fb438dcd4a4
   },
   deleteButton: {
     padding: '8px 16px',
     borderRadius: '8px',
     border: 'none',
+<<<<<<< HEAD
     backgroundColor: '#e74c3c',
     color: 'white',
     fontSize: '14px',
@@ -335,6 +365,11 @@ const styles = {
       padding: '6px 12px',
       fontSize: '12px',
     },
+=======
+    backgroundColor: '#F44336',
+    color: 'white',
+    cursor: 'pointer',
+>>>>>>> 03a5e2a0ac3e3b7d4f58eac2e3145fb438dcd4a4
   },
 };
 
