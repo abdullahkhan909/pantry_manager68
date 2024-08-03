@@ -25,7 +25,6 @@ function Login() {
       if (error.code === 'auth/user-not-found') {
         setMessage('Email not registered');
         setIsSuccess(false);
-<<<<<<< HEAD
       } else {
         setMessage('Login failed. Please try again.');
         setIsSuccess(false);
@@ -33,18 +32,6 @@ function Login() {
       setTimeout(() => {
         setMessage('');
       }, 2000); // Display message for 2 seconds
-=======
-        setTimeout(() => {
-          setMessage('');
-        }, 2000); // Display message for 2 seconds
-      } else {
-        setMessage('Login failed. Please try again.');
-        setIsSuccess(false);
-        setTimeout(() => {
-          setMessage('');
-        }, 2000); // Display message for 2 seconds
-      }
->>>>>>> 03a5e2a0ac3e3b7d4f58eac2e3145fb438dcd4a4
     }
   };
 
@@ -83,14 +70,6 @@ function Login() {
   );
 }
 
-<<<<<<< HEAD
-=======
-// Define your styles here (same as before)
-
-
-
-
->>>>>>> 03a5e2a0ac3e3b7d4f58eac2e3145fb438dcd4a4
 const styles = {
   container: {
     display: 'flex',
@@ -99,7 +78,7 @@ const styles = {
     alignItems: 'center',
     height: '100vh',
     backgroundColor: '#f0f0f0',
-    padding: '20px'
+    padding: '20px',
   },
   form: {
     display: 'flex',
@@ -109,12 +88,8 @@ const styles = {
     border: '1px solid #ccc',
     borderRadius: '8px',
     maxWidth: '400px',
-<<<<<<< HEAD
     backgroundColor: '#fff',
-    width: '100%' // Ensuring the form takes full width on mobile
-=======
-    backgroundColor: '#fff'
->>>>>>> 03a5e2a0ac3e3b7d4f58eac2e3145fb438dcd4a4
+    width: '100%', // Ensuring the form takes full width on mobile
   },
   title: {
     marginBottom: '15px',
@@ -124,18 +99,18 @@ const styles = {
   },
   formGroup: {
     marginBottom: '15px',
-    width: '100%'
+    width: '100%',
   },
   label: {
     display: 'block',
     marginBottom: '5px',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   input: {
     width: '100%',
     padding: '8px',
     borderRadius: '4px',
-    border: '1px solid #ccc'
+    border: '1px solid #ccc',
   },
   submitButton: {
     padding: '10px 20px',
@@ -144,12 +119,8 @@ const styles = {
     backgroundColor: '#4CAF50',
     color: 'white',
     fontSize: '16px',
-<<<<<<< HEAD
     cursor: 'pointer',
-    width: '100%' // Ensuring the button takes full width on mobile
-=======
-    cursor: 'pointer'
->>>>>>> 03a5e2a0ac3e3b7d4f58eac2e3145fb438dcd4a4
+    width: '100%', // Ensuring the button takes full width on mobile
   },
   message: {
     marginBottom: '15px',
@@ -159,10 +130,9 @@ const styles = {
     textAlign: 'center',
     width: '100%',
     maxWidth: '400px',
-  }
+  },
 };
 
-<<<<<<< HEAD
 // Adding media queries for better mobile responsiveness
 const mobileStyles = `
   @media (max-width: 600px) {
@@ -196,6 +166,4 @@ if (typeof window !== 'undefined') {
   document.head.appendChild(styleSheet);
 }
 
-=======
->>>>>>> 03a5e2a0ac3e3b7d4f58eac2e3145fb438dcd4a4
 export default Login;

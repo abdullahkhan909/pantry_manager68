@@ -1,11 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { db, storage } from '../components/firebase'; // Ensure correct path to firebase.js
 import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
-<<<<<<< HEAD
 import { collection, addDoc, deleteDoc, doc, onSnapshot, updateDoc } from 'firebase/firestore';
-=======
-import { collection, addDoc, deleteDoc, doc, onSnapshot, updateDoc, getDoc } from 'firebase/firestore';
->>>>>>> 03a5e2a0ac3e3b7d4f58eac2e3145fb438dcd4a4
 import { useAuth } from '../components/auth'; // Import your authentication context or hook
 
 function ItemForm() {
@@ -188,12 +184,6 @@ function ItemForm() {
   );
 }
 
-<<<<<<< HEAD
-// Define your styles here
-=======
-// Define your styles here (same as before)
->>>>>>> 03a5e2a0ac3e3b7d4f58eac2e3145fb438dcd4a4
-
 const styles = {
   container: {
     display: 'flex',
@@ -223,29 +213,30 @@ const styles = {
     fontWeight: '600',
   },
   formGroup: {
-    marginBottom: '20px',
+    marginBottom: '15px',
     width: '100%',
   },
   label: {
     display: 'block',
-    marginBottom: '8px',
+    marginBottom: '5px',
     fontWeight: '500',
     color: '#555',
   },
   input: {
     width: '100%',
     padding: '10px',
-    borderRadius: '8px',
+    borderRadius: '4px',
     border: '1px solid #ddd',
-    boxShadow: 'inset 0 1px 3px rgba(0, 0, 0, 0.1)',
+    boxSizing: 'border-box',
+    fontSize: '16px',
   },
   submitButton: {
-    padding: '12px 24px',
-    borderRadius: '8px',
+    padding: '10px 20px',
+    borderRadius: '4px',
     border: 'none',
-    backgroundColor: '#4CAF50',
-    color: 'white',
-    fontSize: '18px',
+    backgroundColor: '#007bff',
+    color: '#fff',
+    fontSize: '16px',
     cursor: 'pointer',
     transition: 'background-color 0.3s ease',
   },
@@ -257,11 +248,15 @@ const styles = {
   searchInput: {
     width: '100%',
     padding: '10px',
-    borderRadius: '8px',
+    borderRadius: '4px',
     border: '1px solid #ddd',
-    boxShadow: 'inset 0 1px 3px rgba(0, 0, 0, 0.1)',
+    boxSizing: 'border-box',
+    fontSize: '16px',
   },
   list: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
     width: '100%',
     maxWidth: '500px',
   },
@@ -270,106 +265,41 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     padding: '15px',
-    marginBottom: '10px',
     borderRadius: '8px',
     boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-<<<<<<< HEAD
+    width: '100%',
+    marginBottom: '10px',
     backgroundColor: '#fff',
-    transition: 'transform 0.2s ease',
-=======
-    backgroundColor: '#ffffff',
->>>>>>> 03a5e2a0ac3e3b7d4f58eac2e3145fb438dcd4a4
   },
   itemText: {
-    marginBottom: '10px',
     fontSize: '18px',
-<<<<<<< HEAD
-    fontWeight: '500',
-    textAlign: 'center',
+    marginBottom: '10px',
   },
   image: {
-    width: '100%',
-    maxHeight: '200px',
-    objectFit: 'cover',
-    borderRadius: '8px',
-    marginBottom: '10px',
-=======
-    color: '#333',
-  },
-  image: {
-    width: '100px',
-    height: '100px',
+    maxWidth: '100px',
+    maxHeight: '100px',
     objectFit: 'cover',
     marginBottom: '10px',
-    borderRadius: '8px',
->>>>>>> 03a5e2a0ac3e3b7d4f58eac2e3145fb438dcd4a4
   },
   buttonsContainer: {
     display: 'flex',
     gap: '10px',
   },
   editButton: {
-    padding: '8px 16px',
-    borderRadius: '8px',
+    backgroundColor: '#ffc107',
+    color: '#fff',
+    padding: '5px 10px',
     border: 'none',
-<<<<<<< HEAD
-    backgroundColor: '#f39c12',
-    color: 'white',
-    fontSize: '14px',
+    borderRadius: '4px',
     cursor: 'pointer',
-    transition: 'background-color 0.3s ease',
-=======
-    backgroundColor: '#FFC107',
-    color: 'white',
-    cursor: 'pointer',
->>>>>>> 03a5e2a0ac3e3b7d4f58eac2e3145fb438dcd4a4
   },
   deleteButton: {
-    padding: '8px 16px',
-    borderRadius: '8px',
+    backgroundColor: '#dc3545',
+    color: '#fff',
+    padding: '5px 10px',
     border: 'none',
-<<<<<<< HEAD
-    backgroundColor: '#e74c3c',
-    color: 'white',
-    fontSize: '14px',
+    borderRadius: '4px',
     cursor: 'pointer',
-    transition: 'background-color 0.3s ease',
-  },
-  // Media queries for mobile responsiveness
-  '@media (max-width: 600px)': {
-    form: {
-      padding: '15px',
-      maxWidth: '100%',
-    },
-    title: {
-      fontSize: '20px',
-    },
-    input: {
-      padding: '8px',
-    },
-    submitButton: {
-      padding: '10px 20px',
-      fontSize: '16px',
-    },
-    itemText: {
-      fontSize: '16px',
-    },
-    image: {
-      maxHeight: '150px',
-    },
-    editButton: {
-      padding: '6px 12px',
-      fontSize: '12px',
-    },
-    deleteButton: {
-      padding: '6px 12px',
-      fontSize: '12px',
-    },
-=======
-    backgroundColor: '#F44336',
-    color: 'white',
-    cursor: 'pointer',
->>>>>>> 03a5e2a0ac3e3b7d4f58eac2e3145fb438dcd4a4
   },
 };
 

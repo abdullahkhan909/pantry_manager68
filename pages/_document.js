@@ -1,11 +1,10 @@
-<<<<<<< HEAD
 // pages/_document.js
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 class MyDocument extends Document {
   render() {
     return (
-      <Html>
+      <Html lang="en">
         <Head>
           {/* Google Tag Manager */}
           <script
@@ -51,18 +50,3 @@ class MyDocument extends Document {
 }
 
 export default MyDocument;
-=======
-import { Html, Head, Main, NextScript } from "next/document";
-
-export default function Document() {
-  return (
-    <Html lang="en">
-      <Head />
-      <body>
-        <Main />
-        <NextScript />
-      </body>
-    </Html>
-  );
-}
->>>>>>> 03a5e2a0ac3e3b7d4f58eac2e3145fb438dcd4a4

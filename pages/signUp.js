@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { auth } from '../components/firebase';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 function SignUp() {
   const [email, setEmail] = useState('');
@@ -61,10 +61,7 @@ function SignUp() {
     </div>
   );
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 03a5e2a0ac3e3b7d4f58eac2e3145fb438dcd4a4
 const styles = {
   container: {
     display: 'flex',
@@ -83,12 +80,8 @@ const styles = {
     border: '1px solid #ccc',
     borderRadius: '8px',
     maxWidth: '400px',
-<<<<<<< HEAD
     backgroundColor: '#fff',
     width: '100%' // Ensuring the form takes full width on mobile
-=======
-    backgroundColor: '#fff'
->>>>>>> 03a5e2a0ac3e3b7d4f58eac2e3145fb438dcd4a4
   },
   formGroup: {
     marginBottom: '15px',
@@ -112,12 +105,8 @@ const styles = {
     backgroundColor: '#4CAF50',
     color: 'white',
     fontSize: '16px',
-<<<<<<< HEAD
     cursor: 'pointer',
     width: '100%' // Ensuring the button takes full width on mobile
-=======
-    cursor: 'pointer'
->>>>>>> 03a5e2a0ac3e3b7d4f58eac2e3145fb438dcd4a4
   },
   message: {
     marginBottom: '15px',
@@ -126,8 +115,7 @@ const styles = {
     color: 'white',
     textAlign: 'center',
     width: '100%',
-    maxWidth: '400px',
-<<<<<<< HEAD
+    maxWidth: '400px'
   },
   heading: {
     marginBottom: '20px',
@@ -169,8 +157,4 @@ if (typeof window !== 'undefined') {
   document.head.appendChild(styleSheet);
 }
 
-=======
-  }
-};
->>>>>>> 03a5e2a0ac3e3b7d4f58eac2e3145fb438dcd4a4
 export default SignUp;

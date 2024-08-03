@@ -1,10 +1,5 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-<<<<<<< HEAD
-=======
-import login from './login'; // Adjust the path as necessary
-import signUp from './signUp'; // Adjust the path as necessary
->>>>>>> 03a5e2a0ac3e3b7d4f58eac2e3145fb438dcd4a4
 
 function HomePage() {
   const router = useRouter();
@@ -43,12 +38,9 @@ const styles = {
     backgroundColor: 'rgba(0, 0, 0, 0.6)', // Semi-transparent background for better text visibility
     padding: '20px',
     borderRadius: '10px',
-<<<<<<< HEAD
     width: '100%',
     maxWidth: '500px',
     transition: 'transform 0.2s ease',
-=======
->>>>>>> 03a5e2a0ac3e3b7d4f58eac2e3145fb438dcd4a4
   },
   title: {
     marginBottom: '20px',
@@ -56,13 +48,10 @@ const styles = {
     fontWeight: '700',
   },
   buttonContainer: {
-<<<<<<< HEAD
+    marginBottom: '20px',
     display: 'flex',
     flexDirection: 'column',
     gap: '10px',
-=======
-    marginBottom: '20px',
->>>>>>> 03a5e2a0ac3e3b7d4f58eac2e3145fb438dcd4a4
   },
   navButton: {
     margin: '10px',
@@ -75,7 +64,6 @@ const styles = {
     cursor: 'pointer',
     transition: 'background-color 0.3s ease',
   },
-<<<<<<< HEAD
   // Media queries for mobile responsiveness
   '@media (max-width: 600px)': {
     title: {
@@ -87,8 +75,6 @@ const styles = {
       fontSize: '14px',
     },
   },
-=======
->>>>>>> 03a5e2a0ac3e3b7d4f58eac2e3145fb438dcd4a4
 };
 
 export default HomePage;
