@@ -1,11 +1,16 @@
 // utils/analytics.js
-import ReactGA from 'react-ga';
-
 export const initGA = (trackingID) => {
-  ReactGA.initialize(trackingID);
+  if (window && window.gtag) {
+    window.gtag('config', trackingID, {
+      page_path: window.location.pathname,
+    });
+  }
 };
 
 export const logPageView = () => {
-  ReactGA.set({ page: window.location.pathname });
-  ReactGA.pageview(window.location.pathname);
+  if (window && window.gtag) {
+    window.gtag('config', 'G-EX29TSBZEZ', {
+      page_path: window.location.pathname,
+    });
+  }
 };

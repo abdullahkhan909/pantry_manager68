@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     if (!window.GA_INITIALIZED) {
-      initGA('G-XXXXXXXXXX'); // Replace with your Google Analytics tracking ID
+      initGA('G-EX29TSBZEZ'); // Replace with your Google Analytics tracking ID
       window.GA_INITIALIZED = true;
     }
     logPageView();

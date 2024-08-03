@@ -61,6 +61,7 @@ function SignUp() {
     </div>
   );
 }
+
 const styles = {
   container: {
     display: 'flex',
@@ -79,7 +80,8 @@ const styles = {
     border: '1px solid #ccc',
     borderRadius: '8px',
     maxWidth: '400px',
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
+    width: '100%' // Ensuring the form takes full width on mobile
   },
   formGroup: {
     marginBottom: '15px',
@@ -103,7 +105,8 @@ const styles = {
     backgroundColor: '#4CAF50',
     color: 'white',
     fontSize: '16px',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    width: '100%' // Ensuring the button takes full width on mobile
   },
   message: {
     marginBottom: '15px',
@@ -113,6 +116,45 @@ const styles = {
     textAlign: 'center',
     width: '100%',
     maxWidth: '400px',
+  },
+  heading: {
+    marginBottom: '20px',
+    fontSize: '24px',
+    textAlign: 'center'
   }
 };
+
+// Adding media queries for better mobile responsiveness
+const mobileStyles = `
+  @media (max-width: 600px) {
+    .container {
+      padding: 10px;
+    }
+    .form {
+      padding: 15px;
+    }
+    .heading {
+      font-size: 20px;
+    }
+    .label {
+      font-size: 14px;
+    }
+    .input {
+      padding: 6px;
+    }
+    .submitButton {
+      padding: 8px 15px;
+      font-size: 14px;
+    }
+  }
+`;
+
+// Injecting mobile styles into the document head
+if (typeof window !== 'undefined') {
+  const styleSheet = document.createElement("style");
+  styleSheet.type = "text/css";
+  styleSheet.innerText = mobileStyles;
+  document.head.appendChild(styleSheet);
+}
+
 export default SignUp;

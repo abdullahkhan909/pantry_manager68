@@ -1,7 +1,5 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import login from './login'; // Adjust the path as necessary
-import signUp from './signUp'; // Adjust the path as necessary
 
 function HomePage() {
   const router = useRouter();
@@ -40,6 +38,9 @@ const styles = {
     backgroundColor: 'rgba(0, 0, 0, 0.6)', // Semi-transparent background for better text visibility
     padding: '20px',
     borderRadius: '10px',
+    width: '100%',
+    maxWidth: '500px',
+    transition: 'transform 0.2s ease',
   },
   title: {
     marginBottom: '20px',
@@ -47,7 +48,9 @@ const styles = {
     fontWeight: '700',
   },
   buttonContainer: {
-    marginBottom: '20px',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '10px',
   },
   navButton: {
     margin: '10px',
@@ -59,6 +62,17 @@ const styles = {
     fontSize: '16px',
     cursor: 'pointer',
     transition: 'background-color 0.3s ease',
+  },
+  // Media queries for mobile responsiveness
+  '@media (max-width: 600px)': {
+    title: {
+      fontSize: '28px',
+    },
+    navButton: {
+      margin: '5px',
+      padding: '8px 16px',
+      fontSize: '14px',
+    },
   },
 };
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { db, storage } from '../components/firebase'; // Ensure correct path to firebase.js
 import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
-import { collection, addDoc, deleteDoc, doc, onSnapshot, updateDoc, getDoc } from 'firebase/firestore';
+import { collection, addDoc, deleteDoc, doc, onSnapshot, updateDoc } from 'firebase/firestore';
 import { useAuth } from '../components/auth'; // Import your authentication context or hook
 
 function ItemForm() {
@@ -184,7 +184,7 @@ function ItemForm() {
   );
 }
 
-// Define your styles here (same as before)
+// Define your styles here
 
 const styles = {
   container: {
@@ -265,19 +265,21 @@ const styles = {
     marginBottom: '10px',
     borderRadius: '8px',
     boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-    backgroundColor: '#ffffff',
+    backgroundColor: '#fff',
+    transition: 'transform 0.2s ease',
   },
   itemText: {
     marginBottom: '10px',
     fontSize: '18px',
-    color: '#333',
+    fontWeight: '500',
+    textAlign: 'center',
   },
   image: {
-    width: '100px',
-    height: '100px',
+    width: '100%',
+    maxHeight: '200px',
     objectFit: 'cover',
-    marginBottom: '10px',
     borderRadius: '8px',
+    marginBottom: '10px',
   },
   buttonsContainer: {
     display: 'flex',
@@ -287,17 +289,52 @@ const styles = {
     padding: '8px 16px',
     borderRadius: '8px',
     border: 'none',
-    backgroundColor: '#FFC107',
+    backgroundColor: '#f39c12',
     color: 'white',
+    fontSize: '14px',
     cursor: 'pointer',
+    transition: 'background-color 0.3s ease',
   },
   deleteButton: {
     padding: '8px 16px',
     borderRadius: '8px',
     border: 'none',
-    backgroundColor: '#F44336',
+    backgroundColor: '#e74c3c',
     color: 'white',
+    fontSize: '14px',
     cursor: 'pointer',
+    transition: 'background-color 0.3s ease',
+  },
+  // Media queries for mobile responsiveness
+  '@media (max-width: 600px)': {
+    form: {
+      padding: '15px',
+      maxWidth: '100%',
+    },
+    title: {
+      fontSize: '20px',
+    },
+    input: {
+      padding: '8px',
+    },
+    submitButton: {
+      padding: '10px 20px',
+      fontSize: '16px',
+    },
+    itemText: {
+      fontSize: '16px',
+    },
+    image: {
+      maxHeight: '150px',
+    },
+    editButton: {
+      padding: '6px 12px',
+      fontSize: '12px',
+    },
+    deleteButton: {
+      padding: '6px 12px',
+      fontSize: '12px',
+    },
   },
 };
 
